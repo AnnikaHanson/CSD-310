@@ -1,8 +1,8 @@
 import pymongo
 import certifi
+ca = certifi.where()
 from pymongo import MongoClient
-connection = "mongodb+srv://admin:admin@cluster0.ltoqhqg.mongodb.net/?retryWrites=true&w=majority"
-client = MongoClient(connection, ssl=certifi.where())
+client = MongoClient("mongodb+srv://admin:admin@cluster0.ltoqhqg.mongodb.net/?retryWrites=true&w=majority", tlsCAFile=ca)
 db = client["pytech"]
 collection = db["students"]
 
